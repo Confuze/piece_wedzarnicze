@@ -17,5 +17,7 @@ app.get("/images", async (req, res) => {
 });
 
 app.listen(process.env.port || 3000, () => {
-	console.log(`Listening on localhost:${process.env.port || 3000}`);
+	console.log(`Listening on port ${process.env.port || 3000}`);
 });
+
+console.log(process.env.port);
