@@ -21,7 +21,7 @@ app.get("/images", async (req, res) => {
 });
 
 app.get("/piec", async (req, res) => {
-	res.status(200).send({ link: `https://piece-wedzarnicze.com/img/${images[Math.floor(Math.random() * images.length)]}` });
+	res.status(200).send({ link: `https://piece-wedzarnicze.herokuapp.com/img/${images[Math.floor(Math.random() * images.length)]}` });
 });
 
 // images[Math.floor(Math.random * images.length)]
