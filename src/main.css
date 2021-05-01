@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap");
+
+body {
+	background-color: rgb(247, 248, 248);
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	color: rgb(3, 3, 3);
+}
+
+.main_header {
+	text-align: center;
+	padding: 5vh;
+}
+
+.main_header > h1 {
+	margin: 0;
+}
+
+.main_header > button {
+	margin: 1vh 2vh 0vh 2vh;
+	padding: 2vh;
+	border-radius: 7.5vh;
+	border-color: rgb(3, 3, 3);
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.main_header > button:hover {
+	margin: 1vh 2vh 0vh 2vh;
+	padding: 2vh;
+	border-radius: 7.5vh;
+	background-color: rgb(3, 3, 3);
+	color: rgb(252, 252, 252);
+}
+
+.gallery {
+	display: grid;
+	gap: 1vh;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-auto-rows: 240px;
+}
+
+.gallery > img {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	border-radius: 1%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.gallery > .tall {
+	grid-row: span 2 / auto;
+}
+
+.gallery > .wide {
+	grid-column: span 2 / auto;
+}

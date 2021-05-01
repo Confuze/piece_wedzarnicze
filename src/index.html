@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Piece wędzarnicze</title>
+		<style>
+			@import url("main.css");
+		</style>
+	</head>
+	<body>
+		<header class="main_header">
+			<h1>WITAMY NA FORUM DLA MIŁOŚNIKÓW PIECY WĘDZARNICZYCH</h1>
+			<p>Rozkoszuj się zdjęciami pieców naszych użytkowników, a może nawet podziel się własnym zdjęciem!</p>
+			<button>DODAJ ZDJĘCIĘ</button>
+		</header>
+		<div class="gallery"></div>
+		<script>
+			let images;
+			const gallery = document.querySelector(".gallery");
+
+			(async function () {
+			await fetch("/images")
+			.then((res) => res.json())
+			.then((data) => images = data)
+			.catch((err) => console.log(`An error ocurred when fetching images:\n${err}`));
+
+			let size = 0;
+
+			for (image of images) {
+				const div = document.createElement("img");
+				size++;
+				switch (size) {
+					case 2:
+						div.classList.add("tall");
+						break;
+					case 4:
+						div.classList.add("wide")
+						break;
+					case 7:
+						size = 0
+						break;
+				}
+				div.src = `img/${image}`
+				gallery.appendChild(div)
+			}
+			})()
+		</script>
+	</body>
+</html>
