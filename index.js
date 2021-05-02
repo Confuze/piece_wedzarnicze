@@ -8,6 +8,10 @@ let images;
 
 app.use(express.static("src"));
 
+app.get("*", (req, res) => {
+	res.redirect(`https://${req.headers.hostname}${req.url}`);
+});
+
 app.get("/", async (req, res) => {
 	res.status(200).send(await fs.readFile("./src/index.html", "utf-8"));
 });
