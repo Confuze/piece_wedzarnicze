@@ -67,11 +67,22 @@
 			}
 			})()
 
+
+			if (localStorage.getItem("theme") == "dark") {
+				document.body.classList.replace("light", "dark")
+			}
+
+			setTimeout(() => {
+				document.body.setAttribute("style", "transition: background 0.5s;")
+			}, 500)
+
 			const theme = () => {
 				if (document.body.classList.contains("dark")) {
 					document.body.classList.replace("dark", "light")
+					localStorage.setItem("theme", "light")
 				} else {
 					document.body.classList.replace("light", "dark")
+					localStorage.setItem("theme", "dark")
 				}
 			}
 		</script>
