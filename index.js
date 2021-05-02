@@ -24,6 +24,10 @@ app.get("/piec", async (req, res) => {
 	res.status(200).send({ link: `https://piece-wedzarnicze.herokuapp.com/img/${images[Math.floor(Math.random() * images.length)]}` });
 });
 
+app.get("*", function (req, res) {
+	res.status(404).send("404 not found");
+});
+
 // images[Math.floor(Math.random * images.length)]
 app.listen(process.env.PORT || 3000, () => {
 	console.log(`Listening on port ${process.env.PORT || 3000}`);
