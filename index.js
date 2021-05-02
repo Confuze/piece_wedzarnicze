@@ -9,26 +9,26 @@ let images;
 app.use(express.static("src"));
 
 app.get("*", (req, res) => {
-	res.redirect(`https://${req.headers.hostname}${req.url}`);
+	res.redirect(`https://piece-wedzarnicze.herokuapp.com${req.url}`);
 });
 
 app.get("/", async (req, res) => {
-	res.redirect(`https://${req.headers.hostname}${req.url}`);
+	res.redirect(`https://piece-wedzarnicze.herokuapp.com${req.url}`);
 	res.status(200).send(await fs.readFile("./src/index.html", "utf-8"));
 });
 
 app.get("/about", async (req, res) => {
-	res.redirect(`https://${req.headers.hostname}${req.url}`);
+	res.redirect(`https://piece-wedzarnicze.herokuapp.com${req.url}`);
 	res.status(200).send(await fs.readFile("./src/about.html", "utf-8"));
 });
 
 app.get("/images", async (req, res) => {
-	res.redirect(`https://${req.headers.hostname}${req.url}`);
+	res.redirect(`https://piece-wedzarnicze.herokuapp.com${req.url}`);
 	res.status(200).send(await images);
 });
 
 app.get("/piec", async (req, res) => {
-	res.redirect(`https://${req.headers.hostname}${req.url}`);
+	res.redirect(`https://piece-wedzarnicze.herokuapp.com${req.url}`);
 	res.status(200).send({ link: `https://piece-wedzarnicze.herokuapp.com/img/${images[Math.floor(Math.random() * images.length)]}` });
 });
 
