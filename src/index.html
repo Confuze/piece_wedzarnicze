@@ -17,7 +17,7 @@
 		</style>
 	</head>
 	<body class="light">
-		<button class="switch" onclick="theme()">
+		<button class="switch" onclick="theme()" aria-label="Tryb ciemny i jasny">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -70,6 +70,7 @@
 						break;
 				}
 				div.src = `img/${image}`
+				div.setAttribute("alt", "zdjęcie pieca")
 				gallery.appendChild(div)
 			}
 			})()
