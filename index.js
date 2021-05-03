@@ -1,5 +1,10 @@
 const express = require("express");
 const app = express();
+
+app.get("/", async (req, res) => {
+	res.status(200).send(await fs.readFile("./src/index.html", "utf-8"));
+});
+
 const fs = require("fs").promises;
 let images;
 (async function () {
@@ -7,11 +12,6 @@ let images;
 })();
 
 app.use(express.static("src"));
-
-app.get("/", async (req, res) => {
-	res.status(200).send(await fs.readFile("./src/index.html", "utf-8"));
-});
-
 app.get("/about", async (req, res) => {
 	res.status(200).send(await fs.readFile("./src/about.html", "utf-8"));
 });
