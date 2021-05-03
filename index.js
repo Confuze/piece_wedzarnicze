@@ -1,9 +1,22 @@
+"use strict";
+
 const express = require("express");
 const app = express();
 
 app.get("/", async (req, res) => {
 	res.status(200).send(await fs.readFile("./src/index.html", "utf-8"));
 });
+
+require("greenlock-express")
+	.init({
+		packageRoot: __dirname,
+		configDir: "./greenlock.d",
+
+		maintainerEmail: "confuze.graph.11@gmail.com",
+
+		cluster: false
+	})
+	.serve(app);
 
 const fs = require("fs").promises;
 let images;
