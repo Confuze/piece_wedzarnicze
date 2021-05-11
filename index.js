@@ -1,3 +1,4 @@
+const fs = require("fs").promises;
 const express = require("express");
 const app = express();
 
@@ -5,7 +6,6 @@ app.get("/", async (req, res) => {
 	res.status(200).send(await fs.readFile("./src/index.html", "utf-8"));
 });
 
-const fs = require("fs").promises;
 let images;
 (async function () {
 	images = await fs.readdir("./src/img", "utf-8");
